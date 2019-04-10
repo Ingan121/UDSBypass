@@ -1,0 +1,32 @@
+#!/system/bin/sh
+
+if [[ ( "$1" = "--help" ) || ( "$1" = "" ) ]]; then
+    echo Magisk UDS Detection Bypass Script 1.2 by Ingan121
+    echo
+    echo Usage: sh $0 [package name]/[activity name] [delay]
+    echo "   or: sh $0 [options]"
+    echo
+    echo Delay: sets the delay before restarting magiskd
+    echo "       leave empty or use -1 to restart it manually"
+    echo
+    echo Options:
+    echo "      --help: shows this message"
+    echo "      --version: shows the version of this script"
+elif [ "$1" = "--version" ]; then
+    echo 1.2
+else
+pkgname="$(cut -d / -f1 <<<$1)"
+am force-stop $pkgname
+rm -f /data/data/$pkgname/files/dxshield.*
+am start $1
+sleep 0.3
+kill -9 $(pidof magiskd)
+if [[ ( "$2" = "-1" ) || ( "$2" = "" ) ]]; then
+    echo Press any key to restart Magisk daemon.
+    read -n 1
+else
+    sleep $2
+fi
+magisk --daemon
+magiskhide --enable
+fi
