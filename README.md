@@ -4,9 +4,11 @@ Magisk UDS Detection Bypass Script 1.2 by Ingan121
 (Long-tap the link and tap 'Save link' or such thing. Check the filename after downloading, since some browsers add a .txt extension when downloading.)
 
 # How to use?
-You have to run this script with the name of the activity that you want to use.  
-You can get the required string ([package name]/[activity name]) easily if you're using Nova Launcher. Enable 'Show component...' in Settings > Lab (Google it if you don't know) > Debug, then open the edit dialog of the app. You can copy the string just by tapping it.  
-Since this script kills the Magisk daemon (magiskd), some other root apps might lose root before restarting magiskd, and all apps cannot start a new root shell while magiskd is not running. So, DO NOT close the terminal before relaunching magiskd, otherwise you'll have to reboot to get the root back.
+You have to run this script with the name of the activity that you want to use, see below for more.
+
+The required string ([package name]/[activity name]) can be obtained easily if you're using Nova Launcher. Enable 'Show component...' in Settings > Lab (Google it if you don't know) > Debug, then open the edit dialog of the app. You can copy the string just by tapping it.
+
+Since this script kills the Magisk daemon (magiskd), some other root apps might lose root before restarting magiskd, and all apps cannot start a new root shell while magiskd is not running. So, DO NOT kill the terminal before relaunching magiskd, otherwise you'll have to reboot to get the root back.
 
 ## Per-app guides
 
