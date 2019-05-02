@@ -14,12 +14,13 @@ Since this script kills the Magisk daemon (magiskd), some other root apps might 
 
 ### [Liapp](https://liapp.lockincomp.com)
 If you see a dialog saying
-> \> ROOTED [/ RSH (if Shizuku is running)]  
+> \> ROOTED [/ RSH (if [Shizuku](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api) is running)]  
 > \> MAGISK
 >
 > Security engine: v5.0.2/5.1.0 (lower versions can be bypassed by Magisk 19.0+)
 
-, then the app is definitely using Liapp.
+, then the app is definitely using Liapp.  
+Also, if files named dxshield.map and dxshield.sys exist in /data/data/[package name]/files, then it's using Liapp, too.
 
 For these, you can just run
 > su  
