@@ -1,4 +1,7 @@
 # UDSBypass
+
+**Deprecated** : install a patched Magisk from [this link](https://cafe.naver.com/develoid/873969), follow the link inside.
+
 Magisk UDS Detection Bypass Script 1.2 by Ingan121  
 [Download Script](https://github.com/Ingan121/UDSBypass/raw/master/udsbypass)  
 (Long-tap the link and tap 'Save link' or such thing. Check the filename after downloading, since some browsers add a .txt extension when downloading.)
@@ -15,8 +18,6 @@ However, there is another problem. This detection method will be unavailable soo
 It is even not hard to bypass this detection. Firstly, you can simply revoke 'r' permission of '/proc/net/unix' for apps. Secondly, you can use this script if an app even refuses to run when you revoked the permission (of course, these kinds of apps must change this behavior, in order to make them run on Android Q).
 
 So, I think it'll be better to use other Magisk detection method, not the UDS detection.
-
-~~If you're from the Open Security Summit, then you're welcome.~~ 
 
 # How to use?
 You have to run this script with the name of the activity that you want to use, see below for more.
