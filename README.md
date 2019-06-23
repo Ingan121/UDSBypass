@@ -1,6 +1,6 @@
 # UDSBypass
 
-**Deprecated** : install a [patched Magisk](/arter97/Magisk)
+**Deprecated** : install a [patched Magisk](https://github.com/arter97/Magisk)
 
 Magisk UDS Detection Bypass Script 1.2 by Ingan121  
 [Download Script](https://github.com/Ingan121/UDSBypass/raw/master/udsbypass)  
