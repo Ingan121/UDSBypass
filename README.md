@@ -1,6 +1,6 @@
 # UDSBypass
 
-**Deprecated** : install a [patched Magisk](https://github.com/arter97/Magisk)
+**The script is deprecated**, while this guide will still be maintained.
 
 Magisk UDS Detection Bypass Script 1.2 by Ingan121  
 [Download Script](https://github.com/Ingan121/UDSBypass/raw/master/udsbypass)  
@@ -19,8 +19,10 @@ It is even not hard to bypass this detection. Firstly, you can simply revoke 'r'
 
 So, I think it'll be better to use other Magisk detection method, not the UDS detection.
 
-# How to use?
-You have to run this script with the name of the activity that you want to use, see below for more.
+# How to bypaas?
+In most cases, you can simply run
+> su -c chmod 000 /proc/net/unix
+on terminal. However, some poorly-coded "security" solutions won't pass if that file is inaccessible. If so, you'll have to run this script with the name of the activity that you want to use, see below for more.
 
 The required string ([package name]/[activity name]) can be obtained easily if you're using Nova Launcher. Enable 'Show component...' in Settings > Lab (Google it if you don't know) > Debug, then open the edit dialog of the app. You can copy the string just by tapping it.
 
@@ -28,21 +30,23 @@ Since this script kills the Magisk daemon (magiskd), some other root apps might 
 
 ## Per-app guides
 
-### [Liapp](https://liapp.lockincomp.com)
+### [*xShield](http://www.nshc.net/home/mobile-security/fxshield/)
 If you see a dialog saying
-> \> ROOTED [/ RSH (if root shell is running from any apps)]  
+> \> ROOTED [/ RSH (if root shell is running on any app)]  
 > \> MAGISK
 >
 > Security engine: v5.0.2/5.1.0 (lower versions can be bypassed since Magisk 19.0+)
 
-, then the app is definitely using Liapp.  
-Also, if files named dxshield.map and dxshield.sys exist in /data/data/[package name]/files, then it's using Liapp, too.
+, then the app is definitely using FxShield (banking apps etc) or GxShield (games).  
+Also, if files named dxshield.map and dxshield.sys exist in /data/data/[package name]/files, then it's using *xShield, too.
 
 For these, you can just run
 > su  
 > sh /sdcard/path/to/udsbypass [package name]/[activity name]
 
-in terminal to bypass it.
+in terminal to bypass it. If it is still not working, run
+> su -c chmod 600 /sepolicy /sys/fs/selinux/policy
+on terminal. (In most cases, you can simply ignore the errors on terminal.)
 
 ### [Promon](https://promon.co)
 Update: simply revoke permission to read /proc/net/unix. Run
