@@ -7,7 +7,7 @@ Magisk UDS Detection Bypass Script 1.2 by Ingan121
 (Long-tap the link and tap 'Save link' or such thing. Check the filename after downloading, since some browsers add a .txt extension when downloading.)
 
 # Overview of UDS Detection
-UDS detection, Unix Domain Socket detection, is a very stupid and dumb way to detect [Magisk](https://github.com/topjohnwu/Magisk). Magisk obfuscates its socket names to random 32-digit strings. UDS detection sees this random string as a trace of Magisk. To find this trace, it reads '/proc/net/unix', and finds a 32-digit (without \@) socket name starting with \@, then if it exists, it says 'rooted'.
+UDS detection (Unix Domain Socket detection) is a very stupid and dumb way to detect [Magisk](https://github.com/topjohnwu/Magisk). Magisk obfuscates its socket names to random 32-digit strings. UDS detection sees this random string as a trace of Magisk. To find this trace, it reads '/proc/net/unix', and finds a 32-digit (without \@) socket name starting with \@, then if it exists, it says 'rooted'.
 
 It is first introduced with [the proposed commit request on the Rootbeer repository](https://github.com/scottyab/rootbeer/pull/88). The author closed the request herself and renamed her repository containing a modified Rootbeer with UDS detection to [RootbeerFresh](https://github.com/kimchangyoun/RootbeerFresh). After then, some security solutions like [Liapp](https://liapp.lockincomp.com/) and [Promon](https://promon.co/) was updated to include this Magisk detection method. (As of 6/2, it seems no other apps and security solutions except the prementioned two are either using this method or able to detect Magisk 19+.)
 
@@ -21,7 +21,7 @@ So, I think it'll be better to use other Magisk detection method, not the UDS de
 
 # How to bypaas?
 In most cases, you can simply run
-> su -c chmod 000 /proc/net/unix
+> su -c chmod 000 /proc/net/unix  
 on terminal. However, some poorly-coded "security" solutions won't pass if that file is inaccessible. If so, you'll have to run this script with the name of the activity that you want to use, see below for more.
 
 The required string ([package name]/[activity name]) can be obtained easily if you're using Nova Launcher. Enable 'Show component...' in Settings > Lab (Google it if you don't know) > Debug, then open the edit dialog of the app. You can copy the string just by tapping it.
@@ -45,12 +45,12 @@ For these, you can just run
 > sh /sdcard/path/to/udsbypass [package name]/[activity name]
 
 in terminal to bypass it. If it is still not working, run
-> su -c chmod 600 /sepolicy /sys/fs/selinux/policy
+> su -c chmod 600 /sepolicy /sys/fs/selinux/policy  
 on terminal. (In most cases, you can simply ignore the errors on terminal.)
 
 ### [Promon](https://promon.co)
 Update: simply revoke permission to read /proc/net/unix. Run
-> su -c chmod 000 /proc/net/unix
+> su -c chmod 000 /proc/net/unix  
 in terminal to do that. You have to run this on every reboot. If it is still crashing immediately, first check if MagiskHide is enabled and check if every terminal app is running a 'su' shell then close the shell (or the terminal itself) if exists.
 
 ~~If the app crashes immediately when not using Hide and crashes after a while when using Hide, then probably it is using Promon.  
