@@ -1,9 +1,7 @@
 # UDSBypass
 
-**The script is deprecated**, while this guide will still be maintained.
-
-Magisk UDS Detection Bypass Script 1.2 by Ingan121  
-[Download Script](https://github.com/Ingan121/UDSBypass/raw/master/udsbypass)  
+Magisk UDS Detection Bypass Script by Ingan121  
+[Download the script](https://github.com/Ingan121/UDSBypass/raw/master/bootudsbypass.sh) and put it to /data/adb/service.d  
 (Long-tap the link and tap 'Save link' or such thing. Check the filename after downloading, since some browsers add a .txt extension when downloading.)
 
 # Overview of UDS Detection
@@ -27,6 +25,25 @@ on terminal. However, some poorly-coded "security" solutions won't pass if that 
 The required string ([package name]/[activity name]) can be obtained easily if you're using Nova Launcher. Enable 'Show component...' in Settings > Lab (Google it if you don't know) > Debug, then open the edit dialog of the app. You can copy the string just by tapping it.
 
 Since this script kills the Magisk daemon (magiskd), some other root apps might lose root before restarting magiskd, and all apps cannot start a new root shell while magiskd is not running. So, DO NOT kill the terminal before relaunching magiskd, otherwise you'll have to reboot to get the root back.
+
+## Deprecated time attack based bypass script
+
+[Download Script](https://github.com/Ingan121/UDSBypass/raw/master/udsbypass)  
+(Long-tap the link and tap 'Save link' or such thing. Check the filename after downloading, since some browsers add a .txt extension when downloading.)
+
+You must use this method if you're going to bypass DxShield. See below for more information.
+
+### Command usage
+Usage: sh udsbypass [package name]/[activity name] [delay]  
+or: sh udsbypass [options]
+
+Delay: sets the delay before restarting magiskd  
+leave empty or use -1 to restart it manually
+
+Options:  
+--help: shows this message  
+--version: shows the version of this script  
+
 
 ## Per-app guides
 
@@ -61,14 +78,3 @@ Command:
 > sh /sdcard/path/to/udsbypass [package name]/[activity name] 15
 
 Unlike Liapp, it checks root only when the app starts, so you can restart magiskd after the check is done.
-
-# Command usage
-Usage: sh udsbypass [package name]/[activity name] [delay]  
-or: sh udsbypass [options]
-
-Delay: sets the delay before restarting magiskd  
-leave empty or use -1 to restart it manually
-
-Options:  
---help: shows this message  
---version: shows the version of this script
